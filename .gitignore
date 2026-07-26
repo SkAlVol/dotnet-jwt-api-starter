@@ -1,0 +1,16 @@
+## .NET build artifacts
+bin/
+obj/
+
+## Локальна база даних 
+*.db
+*.db-shm
+*.db-wal
+
+## IDE
+.vs/
+.vscode/
+*.user
+
+## Секрети 
+appsettings.Local.json

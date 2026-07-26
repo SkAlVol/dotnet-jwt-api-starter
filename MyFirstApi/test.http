@@ -1,0 +1,84 @@
+### GET всі студенти
+GET http://localhost:5025/students
+
+### GET один студент
+GET http://localhost:5025/students/2
+
+### POST новий студент
+POST http://localhost:5025/students
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Богдан",
+  "age": 28
+}
+
+### DELETE студента
+DELETE http://localhost:5025/students/1
+
+### PUT оновити студента
+PUT http://localhost:5025/students/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Іра Оновлена",
+  "age": 23
+}
+### POST новий студент — тепер без "id"
+POST http://localhost:5025/students
+Content-Type: application/json
+
+{
+  "name": "Богдан",
+  "age": 28
+}
+
+### PUT оновити студента — теж без "id"
+PUT http://localhost:5025/students/2
+Content-Type: application/json
+
+{
+  "name": "Іра Оновлена",
+  "age": 23
+}
+
+### Тест валідації — порожнє ім'я
+POST http://localhost:5025/students
+Content-Type: application/json
+
+{
+  "name": "",
+  "age": 20
+}
+
+### Тест валідації — від'ємний вік
+POST http://localhost:5025/students
+Content-Type: application/json
+
+{
+  "name": "Богдан",
+  "age": -5
+}
+
+### Тест валідації — вік більше 120
+POST http://localhost:5025/students
+Content-Type: application/json
+
+{
+  "name": "Богдан",
+  "age": 200
+}
+
+### Нормальний запит — має пройти
+POST http://localhost:5025/students
+Content-Type: application/json
+
+{
+  "name": "Богдан",
+  "age": 20
+}
+
+### Тест — навмисна помилка
+GET http://localhost:5025/crash
